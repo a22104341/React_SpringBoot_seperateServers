@@ -3,7 +3,7 @@ function loadNavigationBar(pageName) {
         .then(response => response.text())
         .then(html => {
             document.getElementById('nav-placeholder').innerHTML = html;
-            //setUserName();
+            setUserName();
             toggleLogoutDropdown(pageName);
         });
 }
