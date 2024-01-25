@@ -1,0 +1,25 @@
+<nav id="nav-placeholder">
+    <div>
+        <a href="/criar_1">Criar CTO</a>
+        <a href="/cto's">CTO's</a>
+        <a href="/estatisticas">Consultar estatísticas</a>
+    </div>
+
+    <!-- the gray section -->
+    <div>
+        <!-- Name of page -->
+        <div th:if="${pageName eq 'login'}">Iniciar Sessão</div>
+        <div th:if="${pageName eq 'criar_1'}">Criar CTO 1/2</div>
+        <div th:if="${pageName eq 'criar_2'}">Criar CTO 2/2</div>
+        <div th:if="${pageName eq 'ctos'}">CTO's</div>
+        <div th:if="${pageName eq 'estatisticas'}">Consultar Estatísticas</div>
+
+        <!-- Logout -->
+        <div class="dropdown" id="logoutDropDown">
+            <p id="userName">a</p>
+            <div class = dropdown-content id="logoutText">
+                <a href="/"> Terminar Sessão</a>
+            </div>
+        </div>
+    </div>
+</nav>
