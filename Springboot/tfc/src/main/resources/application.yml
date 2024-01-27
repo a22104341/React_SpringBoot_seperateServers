@@ -53,7 +53,7 @@ spring:
       request-timeout: 3600000
       #Version from video, i think he said you don't need this one
   server:
-    port: 8083
+    port: 8080
     error:
       path: /user/error
       whitelabel:

@@ -4,32 +4,33 @@ import com.tfc.tfc.domain.CTO;
 import com.tfc.tfc.service.CTOservice;
 import lombok.RequiredArgsConstructor;
 
-import org.hibernate.mapping.List;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
 @RestController
-@RequestMapping("/contacts")
+@RequestMapping("/ctos")
 @RequiredArgsConstructor
 public class CTOresource {
-    private final CTOservice ctOService;
+    private final CTOservice ctoService;
 
     @PostMapping
     public ResponseEntity<CTO> createCto(@RequestBody CTO cto) {
         //return ResponseEntity.ok().body(contactService.createContact(contact));
-        return ResponseEntity.created(URI.create("/cto/userUuid")).body(ctOService.createCTO(cto));
+        return ResponseEntity.created(URI.create("/cto/userUuid")).body(ctoService.createCTO(cto));
     }
-/*
-    @GetMapping
-    public ResponseEntity<List<CTO>> getCtos(@RequestParam() {
-        return ResponseEntity.ok().body(ctOService.getAllCtos());
-    }*/
+
+    @GetMapping("/getCtos")
+    public ResponseEntity<List<CTO>> getCtos() {
+        return ResponseEntity.ok().body(ctoService.getAllCtos());
+    }
 
     @GetMapping("/{uuid}")
     public ResponseEntity<CTO> getCto(@PathVariable(value = "uuid") String uuid) {
-        return ResponseEntity.ok().body(ctOService.getCTO(uuid));
+        return ResponseEntity.ok().body(ctoService.getCTO(uuid));
     }
 /*
     @PutMapping("/photo")
